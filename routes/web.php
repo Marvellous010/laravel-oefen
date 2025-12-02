@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Models\Auto;
 
 Route::get('/', function () {
     return view('home');
@@ -31,5 +32,26 @@ Route::get('/users', function () {
 
     foreach ($users as $user) {
         echo $user->id . ' - ' . $user->name . ' - ' . $user->email . '<br>';
+    }
+});
+
+
+Route::get('/auto/add', function () {
+    Auto::create([
+        'merk' => 'Nieuwe Auto',
+        'model' => 'Nieuwe Model',
+        'jaar' => 'Nieuwe Jaar',
+        'kilometerstand' => 'Nieuwe Kilometerstand',
+        'prijs' => 'Nieuwe Prijs'
+    ]);
+
+    return 'Nieuwe auto toegevoegd!';
+});
+
+Route::get('/autos', function () {
+    $autos = Auto::all();
+
+    foreach ($autos as $auto) {
+        echo $auto->id . ' - ' . $auto->merk . ' - ' . $auto->model . ' - ' . $auto->jaar . ' - ' . $auto->kilometerstand . ' - ' . $auto->prijs . '<br>';
     }
 });
