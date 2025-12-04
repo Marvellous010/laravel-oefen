@@ -16,10 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('merk');
             $table->string('model');
-            $table->string('jaar');
-            $table->string('kilometerstand');
-            $table->string('prijs');
-        });
+            $table->integer('jaar');
+            $table->integer('kilometerstand');
+            $table->integer('prijs');
+        }); 
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('autos');
     }
 };

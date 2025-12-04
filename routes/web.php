@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Models\Auto;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home');
@@ -40,9 +41,9 @@ Route::get('/auto/add', function () {
     Auto::create([
         'merk' => 'Nieuwe Auto',
         'model' => 'Nieuwe Model',
-        'jaar' => 'Nieuwe Jaar',
-        'kilometerstand' => 'Nieuwe Kilometerstand',
-        'prijs' => 'Nieuwe Prijs'
+        'jaar' => 2022,
+        'kilometerstand' => 10000,
+        'prijs' => 19999.50
     ]);
 
     return 'Nieuwe auto toegevoegd!';
@@ -55,3 +56,6 @@ Route::get('/autos', function () {
         echo $auto->id . ' - ' . $auto->merk . ' - ' . $auto->model . ' - ' . $auto->jaar . ' - ' . $auto->kilometerstand . ' - ' . $auto->prijs . '<br>';
     }
 });
+
+Route::resource('/posts', PostController::class);
+
