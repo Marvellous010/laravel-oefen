@@ -12,8 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Auto::all();
-        return view('home', ['posts' => $posts]);
+        $autos = Auto::all();
+        return view('home', ['autos' => $autos]);
     }
 
     /**
@@ -21,8 +21,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $posts = Auto::all();
-        return view('home', ['posts' => $posts]);
+        $autos = Auto::all();
+        return view('home', ['autos' => $autos]);
     }
 
     /**
@@ -30,7 +30,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Auto::create($request->all());
+        $autos = Auto::create($request->all());
         return redirect()->route('home');
     }
 
@@ -39,8 +39,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $post = Auto::findOrFail($id);
-        return view('home', ['post' => $post]);
+        $autos = Auto::findOrFail($id);
+        return view('home', ['autos' => $autos]);
     }
 
     /**
@@ -48,8 +48,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        $post = Auto::findOrFail($id);
-        return view('home', ['post' => $post]);
+        $autos = Auto::findOrFail($id);
+        return view('home', ['autos' => $autos]);
     }
 
     /**
@@ -57,8 +57,8 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $post = Auto::findOrFail($id);
-        $post->update($request->all());
+        $autos = Auto::findOrFail($id);
+        $autos->update($request->all());
         return redirect()->route('home');
     }
 
@@ -67,8 +67,8 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Auto::findOrFail($id);
-        $post->delete();
+        $autos = Auto::findOrFail($id);
+        $autos->delete();
         return redirect()->route('home');
     }
 }
